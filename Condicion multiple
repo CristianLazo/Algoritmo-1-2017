@@ -1,0 +1,46 @@
+#include "stdafx.h"
+#include <iostream>
+#include "math.h"
+#include "conio.h"
+
+using namespace std;
+
+
+void main()
+{float area,lado,base,altura;
+ int opc;
+
+ cout<<endl<<"----------------MENU-------------";
+ cout<<endl<<" 1.-Calcula Area del Cuadrado    ";
+ cout<<endl<<" 2.-Calcula Area del Triangulo   ";
+ cout<<endl<<" 3.-Calcula Area del Rectangulo  ";
+ cout<<endl<<" 0.-Salir                        ";
+ cout<<endl<<"Ingrese su opcion a gusto :   ";
+ cin>>opc;
+ switch(opc)
+	   { case 1: {cout<<endl<<"Ingrese el lado: ";
+				 cin>>lado;
+				 area=lado*lado;
+			     cout<<endl<<"El area del cuadrado es: "<<area;break;
+				}
+         case 2: {cout<<endl<<"Ingrese la base: ";
+				 cin>>base;
+				 cout<<endl<<"Ingrese la altura: ";
+				 cin>>altura;
+				 area=(base*altura)/2;
+			     cout<<endl<<"El area del cuadrado es: "<<area;break;
+				}
+         case 3: {cout<<endl<<"Ingrese la base: ";
+				 cin>>base;
+				 cout<<endl<<"Ingrese la altura: ";
+				 cin>>altura;
+				 area=base*altura;
+			     cout<<endl<<"El area del cuadrado es: "<<area;break;
+				}
+		 case 0: cout<<endl<<"Gracias por su visita!";break;
+		
+		 default :cout<<endl<<"Invalido prro";break;
+		}
+ getch();
+}
+				
