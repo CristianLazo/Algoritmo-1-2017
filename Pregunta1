@@ -1,0 +1,44 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+int riesgo1(int a, int b, int c, int d);
+
+void main()
+{int a,b,c,d,riesgo;
+ cout<<"ingrese sueldo: ";
+ cin>>a;
+ cout<<"ingrese historial(1/0): ";
+ cin>>b;
+ cout<<"ingrese moroso(1/0): ";
+ cin>>c;
+ cout<<"ingrese hipoteca: ";
+ cin>>d;
+ riesgo= riesgo1(a,b,c,d);
+
+ cout<<endl<<"EL riesgo es: "<<riesgo;
+ getch();
+}
+
+
+int riesgo1(int a, int b, int c, int d)
+{int x,x1,riesgo=0;
+	
+ x=a*0.2;
+ x1=a*0.3;
+
+ if((b==1 && c==1) || (d>x1))
+   {riesgo++;
+   }
+ else{
+ if((b==0 && d<=x) || (b==1 && c==0 && d<=x1))
+   {riesgo=riesgo+2;
+   }
+ else
+   {riesgo=3;}
+ }
+
+ return(riesgo);
+}
