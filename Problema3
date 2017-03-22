@@ -1,0 +1,68 @@
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+
+using namespace std;
+
+int tipoResultado(float a, float b, float c);
+void calculo(float a, float b, float c, int tipoResultado);
+
+void main()
+{float a, b , c;
+ int tResultado;
+
+ cout<<"\n\n Ingrese a : ";
+ cin>>a;
+ cout<<"\n\n Ingrese b : ";
+ cin>>b;
+ cout<<"\n\n Ingrese c: ";
+ cin>>c;
+
+ tResultado = tipoResultado(a, b, c);
+ calculo(a, b, c, tResultado);
+ 
+ getch();
+}
+
+
+
+
+int tipoResultado(float a, float b, float c)
+{int tResultado;
+ 
+ if(powf(b,2) - (4*a*c) == 0)
+	 tResultado = 1;//SOLUCION UNICA
+
+ if(powf(b,2) - (4*a*c) > 0)
+	 tResultado = 2;//SOLUCIONES REALES
+
+ if(powf(b,2) - (4*a*c) < 0)
+	 tResultado = 3;//SOLUCIONES IMAGINARIAS
+
+ return(tResultado);
+}
+
+
+
+
+void calculo(float a, float b, float c, int tResultado)
+{float solucion1 = 0, solucion2 = 0;
+
+ if(tResultado == 1)
+	{solucion1 = (b * (-1)) / (2*a);
+	 cout<<"\n\n Solucion unica : "<<solucion1;
+	}
+
+ if(tResultado == 2)
+	{solucion1 = ((b * (-1)) + sqrt(powf(b,2) - (4*a*c))) / (2*a);
+	 solucion2 = ((b * (-1)) - sqrt(powf(b,2) - (4*a*c))) / (2*a);
+	 cout<<"\n\n Solucion 1 : "<<solucion1;
+	 cout<<"\n\n Solucion 2 : "<<solucion2;
+	}
+
+ if(tResultado == 3)
+	 cout<<"\n\n Soluciones imaginarias";
+}
+
+
+
