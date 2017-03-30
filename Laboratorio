@@ -1,0 +1,79 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include <string>
+#define Max 100 
+
+using namespace std;
+
+
+void CargarVector1(string nombre[], int n);
+void CargarVector2(int notas[], int n);
+void OrdenarDescendente(int nota[], string nombre[] ,int n);
+void Mostrar(string nombre[], int notas[], int n);
+
+void main()
+{int nota[Max],n;
+string nombre[Max];
+do{
+   cout<<endl<<"Ingrese el tamaño del vector: ";
+   cin>>n;
+  }while( (n<0) || (n>Max));
+
+CargarVector1(nombre,n);
+CargarVector2(nota,n);
+OrdenarDescendente(nombre,nota,n);
+Mostrar(nombre,nota,n);
+getch();
+
+
+}
+
+
+
+void CargarVector1(string nombre[], int n)
+{int i;
+ cin.ignore();
+ for(i=0;i<n;i++)
+    {cout<<endl<<"Ingrese la nombre del alumno: ";
+     getline(cin, nombre[i]);
+    }
+}
+
+void CargarVector2(int notas[], int n)
+{int i;
+ for(i=0;i<n;i++)
+    {cout<<endl<<"Ingrese el Nombre del alumno: ";
+     cin>>notas[i];
+    }
+}
+
+void OrdenarDescendente(string nombre[], int notas[], int n)
+{int i, j;
+string aux1;
+int aux2;
+
+for(i=0;i<n;i++)
+   {for(j=i+1; j<n; j++)
+		{if(notas[i]<notas[j])
+		   {aux2=notas[i];
+            notas[i]=notas[j];
+		    notas[j]=aux2;
+		    aux1=nombre[i];
+            nombre[i]=nombre[j];
+		    nombre[j]=aux1;
+	       }
+		}
+	}
+}
+
+void Mostrar(string nombre[],int notas[],int n)
+{int i;
+cout<<"Nombre"<<"\t"<<"Nota";
+for(i=0;i<n;i++)
+	{cout<<nombre[i]<<"\t"<<notas[i];
+	}
+}
+
+
+
